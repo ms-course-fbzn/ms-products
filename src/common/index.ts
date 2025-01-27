@@ -1,1 +1,1 @@
-export * from '../common/index';
+export * from './dto/pagination.dto';
