@@ -1,12 +1,5 @@
 import {
   Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-  Query,
   ParseIntPipe,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
@@ -48,7 +41,7 @@ export class ProductsController {
   }
 
   /* @Delete(':id') */
-  @MessagePattern({ cmd: 'delete-product' })
+  @MessagePattern({ cmd: 'remove-product' })
   remove(@Payload('id', ParseIntPipe) id: number) {
     return this.productsService.remove(id);
   }
