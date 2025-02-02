@@ -9,13 +9,14 @@ async function bootstrap() {
   const logger = new Logger('ProductsMS-Main');
 
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
-    AppModule,{
-    transport: Transport.TCP,
-    options: {
-      /* host: envs.host, */
-      port: envs.port
-    }
-    }
+    AppModule,
+    {
+      transport: Transport.TCP,
+      options: {
+        host: process.env.HOST,
+        port: +process.env.PORT,
+      },
+    },
   );
 
   app.useGlobalPipes(
